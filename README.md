@@ -12,7 +12,7 @@ Other than posting, the only manual interaction is, I reorder the spreadsheet by
 
 ottawaevents.py is a messaging bot (/u/sergeantalpowellsbot). It runs on a vps in a while loop, with the output catching all the errors I need to catch properly at some point... mostly just 
 
-prawcore.exceptions.RequestException: error with request HTTPSConnectionPool(host='oauth.reddit.com', port=443): Read timed out. (read timeout=16.0)
+`prawcore.exceptions.RequestException: error with request HTTPSConnectionPool(host='oauth.reddit.com', port=443): Read timed out. (read timeout=16.0)`
 
 I've noticed a bug where someone can subscribe twice, which the script should catch.
 
