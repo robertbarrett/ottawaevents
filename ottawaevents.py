@@ -64,7 +64,7 @@ while True:
   for item in reddit.inbox.unread(limit=None):
     if isinstance(item, praw.models.Message):
       unread_messages.append(item)
-      if item.subject == "Subscribe":
+      if item.subject.lower() == "subscribe":
         if isSubscribed(str(item.author)):
           sendMessage(str(item.author),"You're already subscribed.")
           sendMessage("SergeantAlPowell",str(item.author) + " tried to subscribe, but was already subscribed")
@@ -72,7 +72,7 @@ while True:
           subscribeUser(item.author)
           sendMessage(str(item.author),"You'll now recieve a message when a new thread is posted. To unsubscribe, send me a message using this [link](https://www.reddit.com/message/compose/?to=SergeantAlPowellsBot&subject=Unsubscribe&message=Unsubscribe).")
           sendMessage("SergeantAlPowell",str(item.author) + " subscribed")
-      elif item.subject == "Unsubscribe":
+      elif item.subject.lower() == "unsubscribe":
         if isSubscribed(str(item.author)):
           sendMessage(str(item.author),"You're already not subscribed.")
           sendMessage("SergeantAlPowell",str(item.author) + " tried to unsubscribe, but was already unsubscribed")
@@ -80,7 +80,7 @@ while True:
           unsubscribeUser(str(item.author))
           sendMessage(str(item.author),"You're now unsubscribed")
           sendMessage("SergeantAlPowell",str(item.author) + " unsubscribed")
-      elif item.subject == "update":
+      elif item.subject.lower() == "update":
         if isAdmin(str(item.author)):
           sendToUsers(item.body)
         else:
