@@ -16,7 +16,7 @@ function getPost(passedDate) {
   
   begin = convertToNextFriday(passedDate);
   end = new Date(begin)
-  end = offsetDate(new Date(begin),3)
+  end = offsetDate(new Date(begin),7)
   
   // Loop through array and if condition met, add relevant
   // background color.
@@ -36,7 +36,7 @@ function getPost(passedDate) {
       newEntry = eventType + "|" + eventWithLink + "|" + venue + "|" + price + "|" + startTime + "<br>"
       tableOfEvents = tableOfEvents + newEntry
     }
-    postText="<p>Add upcoming events [here](https://docs.google.com/forms/d/e/1FAIpQLScMdbi9dpdNGrfIQ4yHKqa2XTLitwj2ie0f5Al3YaitBFKUJQ/viewform?usp=sf_link). See all events currently added [here](https://docs.google.com/spreadsheets/d/1GS8aFgywW3LGkHO2Bl_8a6_dgRFKgGRBC6Uc74cAeo8/edit?usp=sharing) If you know of something awesome happening, add it there, and it will get pulled into the post for that week.<p>Errors and Omissions ABSOLUTELY expected. If you see something wrong, or have any suggestions on how I can make this better, let me know.<p>If you know of any other events this weekend: just comment below.<p>"
+    postText="<p>* Add upcoming events [here](https://docs.google.com/forms/d/e/1FAIpQLScMdbi9dpdNGrfIQ4yHKqa2XTLitwj2ie0f5Al3YaitBFKUJQ/viewform?usp=sf_link). See all events currently added [here](https://docs.google.com/spreadsheets/d/1GS8aFgywW3LGkHO2Bl_8a6_dgRFKgGRBC6Uc74cAeo8/edit?usp=sharing). If you know of something awesome happening, add it there, and it will get pulled into the post for that week.<p>* I added a bot to subscribe to future posts. To subscribe, send the bot a message by clicking [here](https://www.reddit.com/message/compose/?to=SergeantAlPowellsBot&subject=Subscribe&message=Subscribe) or (for mobile users, since that link doesn't work) just open /u/SergeantAlPowellsBot's profile, and send it a message. The title should just read 'Subscribe'. Body can be whatever you want.<p>* Errors and Omissions ABSOLUTELY expected. If you see something wrong, or have any suggestions on how I can make this better, let me know.<p>"
   }
   
   if (tableOfEvents == "Type|Artist(s)/Event|Venue|Price|Time<br>---|---|---|---|---|---|---|<br>")
@@ -49,6 +49,7 @@ function convertToNextFriday(currentDate) {
  offset = 5 - currentDate.getDay()
  return offsetDate(currentDate,offset)
 }
+
 
 function offsetDate(passedDate,offset) {
   returnDate = new Date(passedDate)
